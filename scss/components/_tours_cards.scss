@@ -1,0 +1,136 @@
+.section-tours-cards {
+    // FUNCTIONALITY 
+    height: 55rem;
+    transition: all 5s;
+    perspective: 150rem; // to give rotating effect, specify very large value
+    -moz-perspective: 150rem;
+    -webkit-perspective: 150rem;
+    position: relative;
+
+    &-side {
+        box-shadow: 0 1rem 4rem rgba($color: #000000, $alpha: .3);
+        backface-visibility: hidden;
+        height: 55rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        
+        &-front {
+            background: white;
+            @include mediaQueryManager(tab-port) {
+                clip-path: polygon(0 0%, 100% 0%, 100% 90%, 0 100%);
+            }
+        }
+        &-back {
+            background: yellow;
+            transform: rotateY(-180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            &-1 {
+                background: linear-gradient(to right bottom, rgba($color: $light-orange, $alpha: 1), rgba($color: $dark-orange, $alpha: 1));
+            }
+            &-2 {
+                background: linear-gradient(to right bottom, rgba($color: $light-green, $alpha: 1), rgba($color: $dark-green, $alpha: 1));
+            }
+            &-3 {
+                background: linear-gradient(to right bottom, rgba($color: $light-blue, $alpha: 1), rgba($color: $dark-blue, $alpha: 1));
+            }
+            @include mediaQueryManager(tab-port) {
+                transform: translateY(-63%);
+                // transform: none;
+                justify-content: flex-end;
+                padding-bottom: 4rem;
+                z-index: -1;
+                // clip-path: polygon(0 60%, 100% 40%, 100% 85%, 0 100%);
+            }
+        }
+
+        @include mediaQueryManager(tab-port) {
+            position: relative;
+            box-shadow: none;
+            // padding-bottom: 7rem;
+            height: 65rem;
+        }
+    }
+
+    &:hover &-side-front{ // to rotate full card rather than one side on hover over the card
+        transform: rotateY(180deg);
+        @include mediaQueryManager(tab-port) {
+            transform: none;
+        }
+    }
+    &:hover &-side-back{ // to rotate full card rather than one side on hover over the card
+        transform: rotateY(0);
+        @include mediaQueryManager(tab-port) {
+            transform: translateY(-63%);
+        }
+    }
+
+    // FRONT SIDE STYLING
+    .section-tours-cards-side-front-image {
+        height: 40%;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        background-blend-mode: screen;
+        
+        &-1 {
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(to right bottom, rgba($color: $light-orange, $alpha: .3), rgba($color: $dark-orange, $alpha: .3));
+            }
+        }
+        &-2 {
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(to right bottom, rgba($color: $light-green, $alpha: .3), rgba($color: $dark-green, $alpha: .3));
+            }
+        }
+        &-3 {
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(to right bottom, rgba($color: $light-blue, $alpha: .3), rgba($color: $dark-blue, $alpha: .3));
+            }
+        }
+
+        @include mediaQueryManager(tab-port) {
+            height: 45%;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+    }
+
+    @include mediaQueryManager(tab-port) {
+        height: auto;
+        
+        &:not(:last-child) {
+            margin-bottom: -35rem;
+        }
+    }
+}
+
+.discover-btn {
+    @include mediaQueryManager(tab-port) {
+        // border: 2px solid pink;
+        margin-top: -36rem;
+    }
+}

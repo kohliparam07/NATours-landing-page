@@ -1,0 +1,129 @@
+.navigation-open {
+    display: none;
+}
+
+.menu-open {
+    position: fixed;
+    top: 7rem;
+    right: 7rem;
+    background-color: white;
+    width: 3rem;
+    padding: 3rem;
+    color: black;
+    border-radius: 50%;
+    height: 3rem;
+    z-index: 13;
+    i {
+        font-size: 3rem;
+        @include absCenter;
+        color: $background-grey;
+    }
+
+    .menu-open-button {
+        transition: all .4s ease;
+    }
+    .menu-close-button {
+        opacity: 0;
+        visibility: hidden;
+        transition: all .4s ease;
+    }
+
+    @include mediaQueryManager(tab-port) {
+        top: 3rem;
+        right: 4rem;
+    }
+}
+
+.page-navigation-bg {
+    position: fixed;
+    top: 7.5rem;
+    right: 7.5rem;
+    z-index: 10;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: radial-gradient($light-green, $dark-green);
+    // visibility: hidden;
+    // opacity: 0;
+    // transition: transform .8s;
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+    z-index: 11;
+    span {
+        display: none;
+    }
+    @include mediaQueryManager(tab-port) {
+        top: 3.5rem;
+        right: 4.5rem;
+    }
+}
+
+.page-navigation {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 12;
+    width: 0%;
+    // border: 2px solid white;
+    // @include clearFix;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    // transition: all .8s -bezier(0.68, -0.55, 0.265, 1.55);
+    &-navlinks {
+        @include absCenter;
+        text-align: center;
+        // z-index: 1555;
+        width: 100%;
+        li {
+            &:not(:last-child) {
+                margin-bottom: 3.5rem;
+            }
+            a {
+                color: white;
+                font-size: 3rem;
+                font-weight: 100;
+
+                &:link, &visited {
+                    display: inline-block;
+                    background: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+                    background-size: 225%;
+                    padding: 1rem 2rem;
+                    transition: all .3s;
+                }
+                &:hover, &:active {
+                    color: $medium-green;
+                    background-position: 100%;
+                    transform: translateX(1rem);
+                }
+            }
+        }
+    }
+}
+
+.navigation-open {
+    z-index: 12;
+    position: fixed;
+}
+.navigation-open:checked ~ .page-navigation-bg {
+    // visibility: visible;
+    // opacity: 1;
+    transform: scale(80);
+}
+.navigation-open:checked ~ .page-navigation {
+    // .page-navigation-navlinks {
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+    // }
+}
+.navigation-open:checked ~ .menu-open {
+    .menu-open-button {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .menu-close-button {
+        opacity: 1;
+        visibility: visible;
+    }
+}

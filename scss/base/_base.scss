@@ -1,0 +1,41 @@
+// this file contains all the basic definitions such as global reset, body styles, etc
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    // defining 1rem
+    font-size: 62.5%;
+    @include mediaQueryManager(tab-land) {  // 1rem = 9px
+        font-size: 56.25%;
+    }
+    @include mediaQueryManager(tab-port) {  // 1rem = 8px
+        font-size: 50%;
+    }
+    @include mediaQueryManager(phone) {  // 1rem = 7px
+        font-size: 50%;
+    }
+    @include mediaQueryManager(desktop) {  // 1rem = 12px
+        font-size: 75%;
+    }
+}
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+    // font-size: 16px;
+    color: $grey;
+    padding: 3rem;
+    @include mediaQueryManager(tab-port) {  // 1rem = 8px
+        padding: 0%;                
+    }
+    @include mediaQueryManager(phone) {  // 1rem = 7px
+        padding: 0%;
+    }
+}
+img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

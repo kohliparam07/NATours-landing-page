@@ -1,0 +1,73 @@
+.section-images {
+    position: relative;
+    // border: 2px solid black;
+    &-composition {
+        background: transparent;
+        width: 55%;
+        @include mediaQueryManager(tab-port) {
+            width: 40%;
+        };
+        border-radius: 2px;
+        position: absolute;
+        box-shadow: 0 1rem 4rem rgba($color: #000000, $alpha: .4);
+        background-color: transparent;
+        transition: all .2s;
+        outline-offset: 2rem; // give space between border and inner image
+        @include mediaQueryManager(tab-port) {
+            outline-offset: 1rem;
+        };
+        &-image1 {
+            top: -2rem;
+            left: 0;
+            z-index: 1;
+            @include mediaQueryManager(tab-port) {
+                top: 8rem;
+                left: 0rem;
+            };
+            @include mediaQueryManager(phone) {
+                left: 6%;
+            };
+        }
+        &-image2 {
+            right: 0;
+            top: 2rem;
+            z-index: 2;
+            @include mediaQueryManager(tab-port) {
+                top: 5rem;
+                left: 15rem;
+            };
+            @include mediaQueryManager(phone) {
+                top: 5rem;
+                left: 30%;
+            };
+        }
+        &-image3 {
+            top: 10rem;
+            left: 20%;
+            z-index: 3;
+            @include mediaQueryManager(tab-port) {
+                top: 8rem;
+                left: 30rem;
+                z-index: 1;
+            };
+            @include mediaQueryManager(phone) {
+                top: 8rem;
+                left: 54%;
+                z-index: 1;
+            };
+        }
+        // instead of applying hover on each image, appy on all togethor
+        &:hover {
+            z-index: 4;
+            // border: 5px solid $medium-green; 
+            // instead of border, apply outline property as it allows us to set space between border and inner image 
+            outline: 1.5rem solid $medium-green;
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color: #000000, $alpha: .5);
+        }
+    }
+    &:hover &-composition:not(:hover) {
+        transform: scale(.95);
+    }
+    // selecting images that are not hovered on hover over entire image section
+}

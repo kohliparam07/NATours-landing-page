@@ -1,0 +1,45 @@
+.container {
+    .row {
+        max-width: $grid-width;
+        background-color: grey;
+        // border: 2px solid black;
+        color: black;
+        margin: auto;
+        &:not(:last-child) {
+            margin-bottom: $margin-vertical;
+        }
+        %colExtended {
+            padding: 1.5rem;
+            background: orange;
+            float: left;
+            &:not(:first-child) {
+                margin-left: $margin-horizontal;
+            }
+        }
+        .col-1-2 {
+            @extend %colExtended;
+            width: calc((100% - #{$margin-horizontal})/2);
+        }
+        .col-1-3 {
+            @extend %colExtended;
+            width: calc((100% - 2*#{$margin-horizontal})/3);
+        }
+        .col-1-4 {
+            @extend %colExtended;
+            width: calc((100% - 3*#{$margin-horizontal})/4);
+        }
+        .col-2-3 {
+            @extend %colExtended;
+            width: calc(2*((100% - 2*#{$margin-horizontal})/3) + #{$margin-horizontal});
+        }
+        .col-2-4 {
+            @extend %colExtended;
+            width: calc(2*((100% - 3*#{$margin-horizontal})/4) + #{$margin-horizontal});
+        }
+        .col-3-4 {
+            @extend %colExtended;
+            width: calc(3*((100% - 3*#{$margin-horizontal})/4) + #{$margin-horizontal});
+        }
+        @include clearFix;
+    }
+}

@@ -1,0 +1,95 @@
+.page-footer {
+    background: $background-grey;
+    padding: 10rem 5%;
+    color: white;
+    font-size: $default-font-size;
+    &-image {
+        text-align: center;
+        margin-bottom: 10rem;
+        img {
+            width: 15%;
+            height: 5%;
+            @include mediaQueryManager(tab-port) {
+                height: 45%;
+                width: 25%;
+            }
+            @include mediaQueryManager(phone) {
+                height: 50%;
+                width: 30%;
+            }
+        }
+    }
+    &-content {
+        // border: 2px solid white;
+        display: flex;
+        justify-content: space-between;
+        &-navlinks {
+            // border: 2px solid pink;
+            display: flex;
+            justify-content: space-between;
+            width: 47%;
+            padding-top: 3rem;
+            border-top: 1px solid $white-grey;
+            li a {
+                &:link, &:visited {
+                    font-size: $default-font-size;
+                    color: white;
+                    background: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+                    background-size: 230%;
+                    transition: all .3s;
+                    padding: 1rem 1rem;
+                }
+                &:hover {
+                    background-position: 100%;
+                    color: $background-grey;
+                }
+                @include mediaQueryManager(phone) {
+                    display: block;
+                    text-align: center;
+                    &:not(:last-child) {
+                        margin-bottom: 5rem;
+                    }
+                }
+            }
+            @media (max-width: 1308px) {
+                width: 100%;
+            }
+            @include mediaQueryManager(phone) {
+                display: block;
+                text-align: center;
+                &:not(:last-child) {
+                    margin-bottom: 5rem;
+                }
+            }
+        }
+        &-text {
+            text-align: left;
+            width: 47%;
+            padding-top: 3rem;
+            border-top: 1px solid $white-grey;
+            @media (max-width: 1308px) {
+                width: 100%;
+                margin-top: 10rem;
+                text-align: center;
+            }
+            @include mediaQueryManager(phone) {
+                margin-top: 3rem;
+            }
+        }
+        @media (max-width: 1308px) {
+            display: block;
+        }
+    }
+    // @include mediaQueryManager(tab-land) {  // 1rem = 8px
+    //     padding: 10rem 2%;
+    // }
+    @media (max-width: 1308px) {
+        padding: 10rem 15%;
+    }
+    @include mediaQueryManager(tab-land) {
+        padding: 10rem 15%;
+    }
+    @include mediaQueryManager(phone) {
+        padding: 10rem 5%;
+    }
+}

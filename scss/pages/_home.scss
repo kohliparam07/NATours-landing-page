@@ -1,0 +1,138 @@
+.section-about {
+    background-color: $section-light-grey;
+    padding: 25rem 5% 35rem 5%;
+    // padding-bottom: 35rem;
+    // position: relative;
+    // z-index: 11;
+    // height of header = 95vh, 
+    // height of clipped polygon = 75vh
+    // so we need to give -ve margin of 20vh to section to fill the clipped area
+    margin-top: -20vh;
+    // border: 2px solid red;
+    @include mediaQueryManager(desktop) {  // 1rem = 8px
+        padding: 25rem 5% 55rem 5%;
+    }
+    @include mediaQueryManager(tab-land) {  // 1rem = 8px
+        padding: 25rem 2% 35rem 2%;
+    }
+    @include mediaQueryManager(tab-port) {  // 1rem = 8px
+        padding: 35rem 0 50rem 0;
+    }
+    @include mediaQueryManager(phone) {  // 1rem = 8px
+        padding: 25rem 0 40rem 0;
+    }
+    .section-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 8rem;
+
+        @include mediaQueryManager(tab-port) {  // 1rem = 8px
+            display: block;
+            padding: 0 25%;
+        }
+        @include mediaQueryManager(phone) {  // 1rem = 8px
+            padding: 0rem 5%;
+        }
+    }
+}
+
+.section-features {
+    position: relative;
+    // height: 110vh;
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    @include mediaQueryManager(desktop) {  // 1rem = 8px
+        clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    }
+    @include mediaQueryManager(tab-port) {  // 1rem = 8px
+        clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+    }
+    @include mediaQueryManager(phone) {  // 1rem = 8px
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+    }
+    margin-top: -20%;
+    &-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        // padding: 25rem 5%;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right bottom, rgba($color: $light-green, $alpha: 0.8), rgba($color: $dark-green, $alpha: 0.8));
+        top: 0;
+        left: 0;
+        z-index: 11;
+    }
+}
+
+.section-tours {
+    background-color: $section-light-grey;
+    padding: 35rem 5% 25rem 5%;
+    // padding-top: 35rem;
+    margin-top: -20%;
+    @include mediaQueryManager(desktop) {  // 1rem = 8px
+        padding: 40rem 5% 15rem 5%;
+    }
+    @include mediaQueryManager(tab-land) {  // 1rem = 8px
+        padding: 35rem 2% 25rem 2%;
+    }
+    @include mediaQueryManager(tab-port) {  // 1rem = 8px
+        padding: 25rem 25% 15rem 25%;
+    }
+    @include mediaQueryManager(phone) {  // 1rem = 8px
+        padding: 15rem 5%;
+    }
+    .section-tours-maindiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 3rem;
+
+        @include mediaQueryManager(tab-port) {  // 1rem = 8px
+            display: block;
+        }
+    }
+}
+
+.stories {
+    padding: 10rem 5%;
+    position: relative;
+}
+
+.section-bookings {
+    background: linear-gradient(to right bottom, rgba($color: $light-green, $alpha: 1), rgba($color: $dark-green, $alpha: 1));
+    padding: 15rem 5%;
+    position: relative;
+    z-index: 7;
+    @include mediaQueryManager(tab-land) {  // 1rem = 8px
+        padding: 15rem 2%;
+    }
+    @include mediaQueryManager(tab-port) {  // 1rem = 8px
+        padding: 10rem 25%;
+    }
+    @include mediaQueryManager(phone) {  // 1rem = 8px
+        padding: 10rem 5%;
+    }
+    &-image {
+        position: absolute;
+        padding: 15rem 5%;
+        @include mediaQueryManager(tab-land) {  // 1rem = 8px
+            padding: 15rem 2%;
+        }
+        @include mediaQueryManager(tab-port) {  // 1rem = 8px
+            padding: 10rem 25%;
+        }
+        @include mediaQueryManager(phone) {  // 1rem = 8px
+            padding: 10rem 5%;
+        }
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+    }
+}
